@@ -1,21 +1,34 @@
 <p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">Yii 2 Basic Project Template</h1>
+    <h1 align="center">Запись логов Apache в бд, CRUDS интерфейс, RBAC и API</h1>
     <br>
 </p>
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+1 - Склонируйте репозиторий и разверните на локальном сервере
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
+2 - в config/db.php подключите созданную ранее вами базу данных
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+3 - Зайдите через консоль в папку с проектом и запустите миграции (yii migrate)
+
+4 - Следующим шагом запустите стандартную yii миграцию для развертывания таблиц RBAC 
+~~~
+yii migrate --migrationPath=@yii/rbac/migrations/
+~~~
+
+5 - После успещного выполнения всех миграций необходимо запустить консольную команду (yii rbac)  для создания двух пользовайтелей admin и user
+
+6 - Следующим шагом нужно записать логи в бд, для этого можете сначала протестировать работу с файлом с помощью консольной команды:
+~~~
+yii logs/test "path"
+~~~
+где path - путь до файла, обязательно в двойных ковычках, при успешном выполнении в консоль выведется массив данных которые можно записать в б.д., непосредственно для записи используйте команду:
+~~~
+yii logs "path"
+~~~
+где path - так-же путь до файла, обязательно в двойных ковычках
+
+7 - Далее заходите в проект через браузер, и авторизируетесь, дальнейщие возможные действия описаны на главной странице
 
 DIRECTORY STRUCTURE
 -------------------

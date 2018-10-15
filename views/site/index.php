@@ -64,8 +64,12 @@ Y-m-d H:i:s]
 
 [$type - Тип запроса (GET, POST и т.д.)]
 
+[$order_column - Сортировать по данному столбцу]
+
+[$order_condition - Правило сортировки (desc - по убыванию asc - по возростанию)]
+
 [Пример GET массива: 
-?data_time_min=11:27:49&data_time_max=2018-10-25 11:30&code=404]
+?data_time_min=11:27:49&data_time_max=2018-10-25 11:30&code=404&order_column=data_time&order_condition=desc]
                 </p>
             </div>
         </div>

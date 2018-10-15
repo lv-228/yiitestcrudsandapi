@@ -203,7 +203,8 @@ class LogsController extends Controller
         
         //Сортировка
         if($order_column != null && $order_condition != null){
-            $response->orderBy([$order_column => 'SORT_' . strtoupper($order_condition)]);
+            $order_condition = $order_condition == 'desc' ? SORT_DESC : SORT_ASC;
+            $response->orderBy([$order_column => $order_condition]);
         }
         
         return $response->all();   
