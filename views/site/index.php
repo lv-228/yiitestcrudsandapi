@@ -29,7 +29,7 @@ else
     <div class="body-content">
     <?php if(!Yii::$app->user->isGuest): ?>
     <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <h2>Логи</h2>
 
                 <p><?= Html::a("Логи",['/logs/index'],['class' => 'btn btn-warning']) ?></p>
@@ -38,7 +38,7 @@ else
 
                 
             </div>
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <h2>Тест записи логов</h2>
 
                 <p><?= Html::a("Тест запись логов",['/logs/test'],['class' => 'btn btn-warning']) ?></p>
@@ -46,8 +46,8 @@ else
                 <p>Предварительный просмотор массива который будет записан в БД</p>
 
                 
-            </div>
-            <div class="col-lg-4">
+            </div> -->
+            <div class="col-lg-6">
                 <h2>API</h2>
                 <p><?= Html::a("API",['/logs/test'],['class' => 'btn btn-warning']) ?></p>
                 <p style='white-space:pre-wrap'>Просмотр API имеются возможные GET параметры: 

@@ -141,9 +141,9 @@ class LogsController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    public function actionTest(){
-        var_dump(Logs::writeLogsInArray('C:\OSPanel\userdata\logs\Apache-PHP-7.2-x64_queriesa.log'));
-    }
+    // public function actionTest(){
+    //     var_dump(Logs::writeLogsInArray('C:\OSPanel\userdata\logs\Apache-PHP-7.2-x64_queriesa.log'));
+    // }
 
     public function actionApi(
         $ip = null, 
