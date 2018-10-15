@@ -65,7 +65,7 @@ class Logs extends \yii\db\ActiveRecord
             $i = 0;
             while (($buffer = fgets($file, 4096)) !== false) {
                 $reqResType = self::getReqResBodyAndType($buffer);
-                $newLineInDb[$i]['ip'] = stristr(trim(stristr($buffer," ", false))," ", true);
+                $newLineInDb[$i]['ip'] = self::getIp($buffer);
                 $newLineInDb[$i]['data_time'] = self::getDate($file,$buffer);
                 $newLineInDb[$i]['req'] = $reqResType['req'];
                 $newLineInDb[$i]['res'] = $reqResType['res'];
@@ -119,6 +119,15 @@ class Logs extends \yii\db\ActiveRecord
         $find = '/[ ][1-5][0-9][0-9][ ]/';
         $matches = [];
         preg_match($find,$str,$matches);
+        return $matches[0];
+    }
+
+    private static function getIp(string $str){
+        if(stristr($str," ",true) == "::1")
+            return "Ip not found";
+        $findIp = '/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/';
+        $matches = [];
+        preg_match($findIp,$str,$matches);
         return $matches[0];
     }
 }
